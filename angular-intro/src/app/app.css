@@ -1,4 +1,15 @@
 
-p {
-  color: green;
+
+input {
+  display: block;
+  margin: 10 0;
+}
+
+.retrieve-with-button {
+  display: flex;
+  gap: 8px;
+}
+
+.input-url {
+  flex: 1;
 }

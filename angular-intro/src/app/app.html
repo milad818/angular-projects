@@ -1,1 +1,19 @@
+
+
+
+<!-- BELOW is implemented an input together with a button to retrieve image
+  <div class="retrieve-with-button">
+  <input class="input-url" #url placeholder="Insert url..." />
+  <button type="button" (click)=changeImageButton(url.value)> Retrieve </button>
+</div> -->
+
+<input (keyup)="changeImage($event)" [value]="imageURL()"/>
+<img [src]="imageURL()" style="width: 40%;" />
+
+
 <p> Hey there! You rock buddy, keep going! </p>
+<p> {{ name().toUpperCase() }} </p>
+<p> {{ getName() }} </p>
+<p> {{ 12 + 13 }} </p>
+
+<!-- [value]="imageURL()" -->
