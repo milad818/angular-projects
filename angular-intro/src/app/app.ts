@@ -39,4 +39,9 @@ export class App {
     this.imageURL.set(url);
   }
 
+  // This will print the event passed to log Image, the image link in this case
+  logImage(e: string) {
+    console.log(e);
+  }
+
 }

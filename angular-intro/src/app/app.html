@@ -10,7 +10,12 @@
 <input (keyup)="changeImage($event)" [value]="imageURL()"/>
 <!-- <img [src]="imageURL()" style="width: 40%;" /> -->
 
-<app-post [postImage]="imageURL()"></app-post>
+<app-post
+  [postImage]="imageURL()"
+  (imageSelected)="logImage($event)">
+
+  <p> Hello again! </p>
+</app-post>
 
 <p> Hey there! You rock buddy, keep going! </p>
 <p> {{ name().toUpperCase() }} </p>

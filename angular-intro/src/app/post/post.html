@@ -1,3 +1,5 @@
 <p>post works!</p>
 
-<img [src]="postImage()" style="width: 40%;" />
+<img [src]="postImage()" (click)="imageSelected.emit(postImage())" style="width: 40%;" />
+
+<ng-content></ng-content>
