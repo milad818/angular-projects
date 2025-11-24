@@ -8,8 +8,9 @@
 </div> -->
 
 <input (keyup)="changeImage($event)" [value]="imageURL()"/>
-<img [src]="imageURL()" style="width: 40%;" />
+<!-- <img [src]="imageURL()" style="width: 40%;" /> -->
 
+<app-post [postImage]="imageURL()"></app-post>
 
 <p> Hey there! You rock buddy, keep going! </p>
 <p> {{ name().toUpperCase() }} </p>
