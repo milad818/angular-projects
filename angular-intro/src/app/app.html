@@ -1,11 +1,31 @@
 
+<!--
+BELOW is implemented a DYNAMIC CLASS
+"blue" cannot be assigned to ngClass directly, otherwise it functions as normal class attribute
+so one has to
+-->
 
+<!--
+ngClass will cause the class for this html element set to "blue"
+if and only if the property blueClass is toggled (via click)
+ngStyle helps to dynamically bind css properties e.g., font-size through the style attribute
+ALSO multi-word properties have to be wrapped with quotes
+ngStyle below will set the font size to fontSize() at the beginning, unless you bind it to click event
+(click)="blueClass.set(!blueClass()); fontSize.set(24)"
+BELOW is bound with a ternary operator to toggle between two values:
+-->
+<button (click)="blueClass.set(!blueClass()); fontSize.set(blueClass() ? 24 : 16) "
+        [ngClass]="{ blue: blueClass()}"
+        [ngStyle]="{ 'font-size.px': fontSize() }">Click me!</button>
+<hr />
 
 <!-- BELOW is implemented an input together with a button to retrieve image
   <div class="retrieve-with-button">
   <input class="input-url" #url placeholder="Insert url..." />
   <button type="button" (click)=changeImageButton(url.value)> Retrieve </button>
 </div> -->
+
+
 
 <input (keyup)="changeImage($event)" [value]="imageURL()"/>
 <!-- <img [src]="imageURL()" style="width: 40%;" /> -->
@@ -17,9 +37,22 @@
   <p> Hello again! </p>
 </app-post>
 
+
+<!-- BELOW will be explored Angular Pipes -->
 <p> Hey there! You rock buddy, keep going! </p>
 <p> {{ name().toUpperCase() }} </p>
+<p> {{ name() | titlecase }} </p>
 <p> {{ getName() }} </p>
 <p> {{ 12 + 13 }} </p>
+<!-- custom format -->
+<p> {{ currentDate() | date: 'MMMM d' }} </p>
+<!-- predefined format -->
+<p> {{ currentDate() | date: 'short' }} </p>
+<p> {{ cost() | currency: 'EUR' : 'code' }} </p>
+<p> {{ cost() | currency: 'JPY' }} </p>
+<!-- formatt: whole.minDec-maxDec -->
+<p> {{ temperature() | number: '1.2-5' }} </p>
+<p> {{ temperature() | number: '3.2-2' }} </p>
+<pre> {{ burger() | json }} </pre>
 
 <!-- [value]="imageURL()" -->

@@ -1,0 +1,11 @@
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+/* applied to the main tag and all others in it */
+:host {
+  font-size: 24px;
+  font-style: italic;
+}

@@ -1,6 +1,9 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Post } from "./post/post";
+import { TitleCasePipe, DatePipe, CurrencyPipe, DecimalPipe, JsonPipe, NgClass, NgStyle } from '@angular/common';
+// instead of all the above imports you can simply import the module below
+// import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +11,13 @@ import { Post } from "./post/post";
   // template: `<p> Hi there! </p>`,
   templateUrl: './app.html',
   styleUrl: './app.css',
-  imports: [Post]
+  imports: [Post,
+    TitleCasePipe,
+    DatePipe,
+    CurrencyPipe,
+    DecimalPipe,
+    JsonPipe,
+    NgClass, NgStyle]
   // in-line styles go below
   // styles: ['']
 })
@@ -17,9 +26,19 @@ export class App {
 
   // Variables in classes are not signals by default
   // To turn them into signal so that the changes can be tracked, we do as follows:
-  name = signal('Luis')
+  name = signal('luis')
   // you can also pic different images from picsum.photos/images
   imageURL = signal("https://picsum.photos/id/10/200/200")
+  currentDate = signal(new Date());
+  cost = signal(2000);
+  temperature = signal(30.2);
+  burger = signal({
+    ingredients: ['bacon', 'tomato', 'cheese'],
+    size: 'large'
+  })
+  blueClass = signal(false);
+  fontSize = signal(16);
+
 
   getName() {
     return this.name();
