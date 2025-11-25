@@ -1,11 +1,14 @@
 
+
+@if (blueClass()) {
+  <p> Blue button activated! </p>
+}
+
 <!--
 BELOW is implemented a DYNAMIC CLASS
 "blue" cannot be assigned to ngClass directly, otherwise it functions as normal class attribute
 so one has to
--->
 
-<!--
 ngClass will cause the class for this html element set to "blue"
 if and only if the property blueClass is toggled (via click)
 ngStyle helps to dynamically bind css properties e.g., font-size through the style attribute
@@ -30,12 +33,26 @@ BELOW is bound with a ternary operator to toggle between two values:
 <input (keyup)="changeImage($event)" [value]="imageURL()"/>
 <!-- <img [src]="imageURL()" style="width: 40%;" /> -->
 
+<p style="color: green;"> SINGLE POST </p>
 <app-post
-  [postImage]="imageURL()"
-  (imageSelected)="logImage($event)">
+    [postImage]="imageURL()"
+    (imageSelected)="logImage($event)"
+    >
 
-  <p> Hello again! </p>
+    <p> Hello again! </p>
 </app-post>
+
+<p style="color: blue;"> LOOP POSTS </p>
+@for (image of images(); let idx = $index; track idx) {
+  <app-iterpost
+    [image]="image"
+    >
+
+
+    <p> Hello again! </p>
+  </app-iterpost>
+}
+
 
 
 <!-- BELOW will be explored Angular Pipes -->

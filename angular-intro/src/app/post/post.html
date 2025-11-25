@@ -1,5 +1,6 @@
-<p>post works!</p>
 
+<p>post works!</p>
 <img [src]="postImage()" (click)="imageSelected.emit(postImage())" style="width: 40%;" />
 
+<!-- This is to allow <p> tag to be rendered inside <app-iterpost> -->
 <ng-content></ng-content>

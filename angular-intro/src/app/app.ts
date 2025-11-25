@@ -2,6 +2,7 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Post } from "./post/post";
 import { TitleCasePipe, DatePipe, CurrencyPipe, DecimalPipe, JsonPipe, NgClass, NgStyle } from '@angular/common';
+import { Iterpost } from './iterpost/iterpost';
 // instead of all the above imports you can simply import the module below
 // import { CommonModule } from '@angular/common';
 
@@ -11,7 +12,7 @@ import { TitleCasePipe, DatePipe, CurrencyPipe, DecimalPipe, JsonPipe, NgClass, 
   // template: `<p> Hi there! </p>`,
   templateUrl: './app.html',
   styleUrl: './app.css',
-  imports: [Post,
+  imports: [Post, Iterpost,
     TitleCasePipe,
     DatePipe,
     CurrencyPipe,
@@ -38,6 +39,11 @@ export class App {
   })
   blueClass = signal(false);
   fontSize = signal(16);
+  images = signal([
+    "https://picsum.photos/id/11/200/200",
+    "https://picsum.photos/id/12/200/200",
+    "https://picsum.photos/id/13/200/200"
+  ])
 
 
   getName() {
