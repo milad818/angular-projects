@@ -1,0 +1,26 @@
+.counter-container{
+  max-width: 450px;
+  background-color: #fbffed;
+  border: 1px solid #b0ff85;
+  border-radius: 30px;
+  padding: 20px;
+  text-align: center;
+  margin: 40px auto;
+  box-shadow: 0 4px 4px rgb(196, 196, 196);
+}
+
+.h1{
+  font-size: 2em;
+}
+
+button{
+  padding: 10px 20px;
+  font-size: 1em;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover{
+  background-color: #9dc2f9;
+}

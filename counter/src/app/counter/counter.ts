@@ -8,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class Counter {
 
+  counter = 5;
+
+  increment() {
+    this.counter++;
+  }
+
+  decrement() {
+    this.counter--;
+  }
+
 }
