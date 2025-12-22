@@ -13,8 +13,8 @@
   </div> -->
 
   @switch (getCounterStatus()) {
-    @case ('positive') {<div [ngStyle]="{color: 'green'}">The counter is positive.</div>}
-    @case ('neutral') {<div [ngStyle]="{color: 'grey'}">The counter is neutral.</div>}
-    @case ('negative') {<div [ngStyle]="{color: 'red'}">The counter is negative.</div>}
+    @case ('positive') {<p [class]="'positive'">The counter is positive.</p>}
+    @case ('neutral') {<p [class]="'neutral'">The counter is neutral.</p>}
+    @case ('negative') {<p [class]="'negative'">The counter is negative.</p>}
   }
 </div>
