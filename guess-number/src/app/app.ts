@@ -1,12 +1,11 @@
 import { Component, signal } from '@angular/core';
-import { Stopwatch } from './stopwatch/stopwatch';
 
 @Component({
   selector: 'app-root',
-  imports: [Stopwatch],
+  imports: [],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('stopwatch');
+  protected readonly title = signal('guess-number');
 }

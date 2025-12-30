@@ -14,6 +14,9 @@ export class Stopwatch {
   isRunning = false;
   intervalRef: any;
 
+  // ChangeDetectorRef is declared in the constructor, because ChangeDetectorRef is a service, not data
+  // It is managed by Angular, context-specific to the component instance
+  // It is also provided via Dependency Injection (DI), so Angular must inject it
   constructor(private cdr: ChangeDetectorRef) {}
 
   startStop() {
@@ -24,7 +27,8 @@ export class Stopwatch {
     this.isRunning = true;
     this.intervalRef = setInterval(() => {
       this.elapsedTime += 0.1;
-      this.cdr.markForCheck();
+      // Angular does not automatically detect changes caused by: setInterval, setTimeout, and some external APIs
+      this.cdr.markForCheck();  // without marking, elapsedTime updates internally (the UI does not re-render)
       console.log(this.elapsedTime);
     }, 100);
     console.log('Stopwatch started.')
