@@ -1,8 +1,9 @@
 import { Component, signal } from '@angular/core';
+import { GuessNumber } from './guess-number/guess-number';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [GuessNumber],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
