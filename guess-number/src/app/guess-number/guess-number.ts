@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 export class GuessNumber {
 
   secretNumber = this.generateRandomNumber();
-  attemptsLeft = 5;
+  attemptsLeft = 8;
   guessedNumber?: number;
   feedbackMessage = '';
   gameOver = false;

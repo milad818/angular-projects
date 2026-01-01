@@ -1,0 +1,44 @@
+.game-container {
+  background-color: #cae3fc;
+  text-align: center;
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 2em;
+}
+
+input {
+  margin: 12px;
+  padding: 6px;
+  width: 80%;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #4caf10;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:disabled {
+  background-color: #b7b7b7;
+  cursor: not-allowed;
+}
+
+.feedback {
+  margin-top: 18px;
+}
+
+p {
+  font-size: 18px;
+}
+
+// .correct {
+//   color: green;
+// }
+
+// .incorrect {
+//   color: red;
+// }
