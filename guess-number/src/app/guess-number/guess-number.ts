@@ -56,7 +56,7 @@ export class GuessNumber {
   private endGame(wonGame: boolean): void {
     this.gameOver = true;
     this.feedbackMessage = wonGame
-    ? 'Congrats! You guessed the correct number.'
+    ? `Congrats! You guessed the correct number (${this.secretNumber}).`
     : `Game over! The correct number was ${this.secretNumber}.`
   }
 
