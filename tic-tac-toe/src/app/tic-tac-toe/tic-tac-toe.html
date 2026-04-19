@@ -1,1 +1,23 @@
-<p>tic-tac-toe works!</p>
+<div class="game-container">
+  <h1>Tic Tac Toe</h1>
+
+  @if (!winner && !winner) {
+    <div class="turn-indicator">Player {{currentPlayer}}'s turn:</div>
+  }
+
+  <div class="board">
+    @for (item of board; track $index) {
+    <div class="cell" (click)="makeMove($index)">{{ item }}</div>
+    }
+  </div>
+
+  @if (winner) {
+  <div class="winner">Player {{ winner }} wins!</div>
+  }
+
+  @if (isDraw && !winner) {
+  <div class="draw-message">It is a draw!</div>
+  }
+
+  <button (click)="resetGame()">Reset Game</button>
+</div>
