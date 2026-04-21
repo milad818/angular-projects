@@ -34,10 +34,37 @@ export class RspGame {
     return "You lost!";
   }
 
+  // APPROACH B
+  playerWinsRound(player: string, computer: string): boolean {
+    const winningRules: { [key: string]: string } = {
+      Rock: "Scissors",
+      Paper: "Rock",
+      Scissors: "Paper"
+    };
+
+    return winningRules[player] === computer;
+  }
+
+  decideWinner(player: string, computer: string): string {
+    if (player === computer) {
+      return "No winner, it is a tie!"
+    } else if (this.playerWinsRound(player, computer)) {
+      return "You won!"
+    } else {
+      return "You lost!"
+    }
+  }
+
   play(choice: string) {
     this.playerChoice = choice;
     this.computerChoice = this.choices[(this.getRandomNumber(this.choices.length))]
+
+    // APPROACH A
     this.result = this.determineWinner(this.playerChoice, this.computerChoice)
+
+    // APPROACH B
+    // this.result = this.decideWinner(this.playerChoice, this.computerChoice)
+
   }
 }
 
