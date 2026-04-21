@@ -16,6 +16,12 @@
         <img [src]="'images/' + playerChoice.toLocaleLowerCase() + '.jpeg'" [alt]="playerChoice">
       </p>
 
+      <p>
+        Computer chose:
+        <strong> {{ computerChoice }} </strong>
+        <img [src]="'images/' + computerChoice.toLocaleLowerCase() + '.jpeg'" [alt]="playerChoice">
+      </p>
+
       <h2>{{ result }}</h2>
     </div>
   }
