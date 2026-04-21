@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
 
+
+interface GameRules {
+    [key: string]: string
+  }
+
+
 @Component({
   selector: 'app-rsp-game',
   imports: [],
@@ -36,7 +42,7 @@ export class RspGame {
 
   // APPROACH B
   playerWinsRound(player: string, computer: string): boolean {
-    const winningRules: { [key: string]: string } = {
+    const winningRules: GameRules = {
       Rock: "Scissors",
       Paper: "Rock",
       Scissors: "Paper"
