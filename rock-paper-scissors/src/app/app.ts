@@ -1,12 +1,10 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RspGame } from './rsp-game/rsp-game';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RspGame],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
-  protected readonly title = signal('rock-paper-scissors');
-}
+export class App {}
