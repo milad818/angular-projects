@@ -1,1 +1,22 @@
-<p>rsp-game works!</p>
+<div class="game-container">
+  <h1>Rock, Paper, Scissors</h1>
+
+  <div class="choices">
+    @for (choice of choices; track $index) {
+      <button (click)="play(choice)">
+        <img src="images/{{choice.toLocaleLowerCase()}}.jpeg" alt="{{choice}}">
+      </button>
+    }
+  </div>
+  @if (playerChoice && computerChoice) {
+    <div class="results">
+      <p>
+        You chose:
+        <strong> {{ playerChoice }} </strong>
+        <img [src]="'images/' + playerChoice.toLocaleLowerCase() + '.jpeg'" [alt]="playerChoice">
+      </p>
+
+      <h2>{{ result }}</h2>
+    </div>
+  }
+</div>
