@@ -1,12 +1,10 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { QaAccordion } from './qa-accordion/qa-accordion';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [ QaAccordion ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
-  protected readonly title = signal('qa-accordion');
-}
+export class App {}
