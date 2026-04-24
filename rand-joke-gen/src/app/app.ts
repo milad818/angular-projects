@@ -1,9 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { JokeBox } from './joke-box/joke-box';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [JokeBox],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
