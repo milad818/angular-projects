@@ -13,6 +13,10 @@
   transition: background-color 0.3s;
 }
 
+h1 {
+  text-align: center;
+}
+
 .qa-item:hover {
   font-weight: bold;
   background-color: #f1f1f1;

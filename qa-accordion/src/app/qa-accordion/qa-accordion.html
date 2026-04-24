@@ -1,4 +1,5 @@
-<div qa-container>
+<div class="qa-container">
+  <h1> Q/A Accordion </h1>
   @for (qa of qas; track $index) {
     <div class="qa-item" (click)="toggleQA($index)">
       <div class="qa-question"> - {{ qa.question }} </div>
