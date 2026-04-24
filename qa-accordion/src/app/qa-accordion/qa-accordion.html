@@ -1,9 +1,9 @@
 <div qa-container>
   @for (qa of qas; track $index) {
     <div class="qa-item" (click)="toggleQA($index)">
-      <div class="qa-question"> {{ qa.question }} </div>
-      @if ($index === openedIndex) {
-        <div class="qa-answer"> {{ qa.answer }} </div>
+      <div class="qa-question"> - {{ qa.question }} </div>
+      @if (openedIndex === $index) {
+        <div class="qa-answer fade-slide"> {{ qa.answer }} </div>
       }
     </div>
   }
