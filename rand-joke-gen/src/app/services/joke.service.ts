@@ -11,7 +11,7 @@ interface RandomJoke {
 @Injectable({
   providedIn: 'root',
 })
-export class Joke {
+export class JokeService {
 
   private apiURL = 'http://official-joke-api.appspot.com/jokes/random';
 

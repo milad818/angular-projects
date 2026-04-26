@@ -1,1 +1,20 @@
-<p>joke-box works!</p>
+<div class="joke-ontainer">
+  <h2>Random Joke Generator</h2>
+
+  <button (click)="fetchJoke()" >Get A New Random Joke</button>
+
+  @if (isLoading) {
+    <div class="joke-loading-message">Loading ...</div>
+  }
+
+  @if (errorMessage) {
+    <div class="joke-error-message"> {{ errorMessage }} </div>
+  }
+
+  @if (jokeSetup && !errorMessage && !isLoading) {
+    <div>
+      <p><strong>Setup: </strong> {{ jokeSetup }} </p>
+      <p><strong>Punchline: </strong> {{ jokePunchline }} </p>
+    </div>
+  }
+</div>
