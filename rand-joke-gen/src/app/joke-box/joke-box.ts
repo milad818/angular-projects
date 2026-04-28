@@ -25,11 +25,9 @@ export class JokeBox {
 
     this.jokeService.getRandomJoke().subscribe({
       next: (joke) => {
-        console.log(joke)
         this.jokeSetup = joke.setup;
         this.jokePunchline = joke.punchline;
         this.isLoading = false;
-        console.log(this.isLoading)
         this.cdr.detectChanges();
       },
       error: () => {

@@ -1,4 +1,4 @@
-<div class="joke-ontainer">
+<div class="joke-gen-container">
   <h2>Random Joke Generator</h2>
 
   <button (click)="fetchJoke()" >Get A New Random Joke</button>
@@ -12,7 +12,7 @@
   }
 
   @if (jokeSetup && !errorMessage && !isLoading) {
-    <div>
+    <div class="joke-container">
       <p><strong>Setup: </strong> {{ jokeSetup }} </p>
       <p><strong>Punchline: </strong> {{ jokePunchline }} </p>
     </div>
