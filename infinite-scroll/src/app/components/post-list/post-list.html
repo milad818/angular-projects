@@ -1,1 +1,14 @@
-<p>post-list works!</p>
+<div class="posts">
+  @for (post of posts; track $index) {
+    <app-post [post]="post"></app-post>
+  }
+
+  @if (isLoading) {
+    <div class="loading-message">Loading...</div>
+  }
+
+  @if (errorMessage) {
+    <div class="error-message"> {{ errorMessage }} </div>
+  }
+
+</div>
