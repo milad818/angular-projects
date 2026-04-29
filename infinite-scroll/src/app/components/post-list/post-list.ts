@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, Inject, inject, OnInit } from '@angular/core';
+import { Component, HostListener, inject, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Post } from '../post/post';
 import { PostService } from '../../services/post.service';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-post-list',
@@ -16,11 +17,16 @@ export class PostList implements OnInit {
   itemLimit: number = 10;
   errorMessage: string = '';
 
-  postService = Inject(PostService);
 
   ngOnInit(): void {
     this.loadPosts();
   }
+
+  // Inject service
+  private postService = inject(PostService);
+
+  private cdr = inject(ChangeDetectorRef);
+
 
   private handleError(error: any): void {
     console.error('Error raised while fetching posts:', error);
@@ -35,6 +41,8 @@ export class PostList implements OnInit {
           // Append new posts to the existing list of posts
           this.posts = [...this.posts, ...newPosts];
           this.pageNumber++;
+          this.errorMessage= '';
+          this.cdr.detectChanges();
         }
       },
       error: (error: any) => {
@@ -50,11 +58,11 @@ export class PostList implements OnInit {
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
     // 1. Calculate how much has been scrolled
-    const pos = (document.documentElement.scrollTop || document.body.scrollTop) + document.documentElement.offsetHeight;
-    const max = document.documentElement.scrollHeight;
+    const pos = window.innerHeight + window.scrollY;
+    const max = document.body.scrollHeight;
 
     // 2. Check if we are near the bottom (e.g., 200px threshold)
-    if (pos >= max - 200 && !this.isLoading) {
+    if (pos >= max && !this.isLoading) {
       this.loadPosts();
     }
   }

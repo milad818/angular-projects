@@ -21,6 +21,7 @@ export class Post implements OnInit {
 
   private generateRandomPhoto(): void {
     const randomSeed = this.generateRandomNumber(1000)
+    this.randomPhotoUrl = `https://picsum.photos/seed/${randomSeed}/50`
   }
 
   private generateRandomNumber(max: number): number {

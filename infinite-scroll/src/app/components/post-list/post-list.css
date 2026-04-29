@@ -1,0 +1,20 @@
+.posts {
+  width:50%;
+  margin: auto;
+}
+
+.loading-message {
+  text-align: center;
+  font-size: 1.2em;
+  margin: 16px, 0;
+}
+
+.error-message {
+  color: red;
+  font-size: 16px;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f8d7df;
+  border: 2px solid;
+  border-radius: 4px;
+}
