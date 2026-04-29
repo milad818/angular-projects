@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 
@@ -25,6 +25,14 @@ export class PostService {
       );
   }
 
-  // APPPROACH B: More modern and sophisticated
-  // TO-DO
+  // APPROACH B: More modern and sophisticated in terms of params handling
+  // getPosts(pageNumber: number, itemLimit: number): Observable<any[]> {
+  //   const params = new HttpParams()
+  //     .set('_pages', pageNumber)
+  //     .set('_limit', itemLimit);
+
+  //   // console.log(params);
+
+  //   return this.http.get<any[]>(this.API_URL, { params });
+  // }
 }
