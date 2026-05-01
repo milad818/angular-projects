@@ -1,1 +1,12 @@
-<p>clock works!</p>
+<div class="clock">
+  @for (number of clockNumbers; track $index) {
+    <div class="number"
+        [style.top.%]="number.position.top"
+        [style.left.%]="number.position.left">
+
+        {{ number.number }}
+    </div>
+  }
+
+  <div class="center"></div>
+</div>
