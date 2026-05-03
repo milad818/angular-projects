@@ -29,3 +29,28 @@
   transform: translate(-50%, -50%);
   z-index: 1;
 }
+
+.hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: top center;
+}
+
+.hour {
+  width: 3px;
+  height: 70px;
+  background-color: black;
+}
+
+.minute {
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(to bottom, #4d4d4d, #b3b3b3)
+}
+
+.second {
+  width: 1px;
+  height: 130px;
+  background: linear-gradient(to top, #f6f6f6, #fd4b4b)
+}
