@@ -42,7 +42,8 @@ export class PostList implements OnInit {
           this.posts = [...this.posts, ...newPosts];
           this.pageNumber++;
           this.errorMessage= '';
-          this.cdr.detectChanges();
+          // this.cdr.detectChanges();  // Avoid it here, otherwise, NG0100: ExpressionChangedAfterItHasBeenCheckedError in console
+                                        // Instead add markForCheck() below to check/mark for changes
         }
       },
       error: (error: any) => {
@@ -50,6 +51,7 @@ export class PostList implements OnInit {
       },
       complete: () => {
         this.isLoading = false;
+        this.cdr.markForCheck();
       }
     });
   }
