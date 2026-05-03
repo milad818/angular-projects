@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { CLOCK_CONSTANTS as cc } from './clock.constants';
-import { TimeService } from '../services/time.service'
+// import { TimeService } from '../services/time.service'
+import { MockTimeService } from '../services/mock-time.service'
+
 
 @Component({
   selector: 'app-clock',
@@ -17,7 +19,7 @@ export class Clock implements OnInit {
   seconds: number = 0;
   clockNumbers = this.generateClockNumbers();
 
-  private timeService = inject(TimeService)
+  private timeService = inject(MockTimeService)
   private cdr = inject(ChangeDetectorRef);
 
   generateClockNumbers(): ClockNumber[] {
@@ -52,7 +54,7 @@ export class Clock implements OnInit {
 
   // Update hands of the clock
   updateClock() {
-    const now = this.timeService.getCurrentTime();
+    const now: Date = this.timeService.getCurrentTime();
     this.hours = (now.getHours() % 12) * cc.DEGREES_PER_HOUR +
                   now.getMinutes() * cc.MINUTE_ADJUSTMENT +
                   cc.OFFSET_ROTATION;
