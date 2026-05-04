@@ -2,13 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component, HostListener, inject, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Post } from '../post/post';
 import { PostService } from '../../services/post.service';
-import { ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-post-list',
   imports: [CommonModule, Post],
   templateUrl: './post-list.html',
   styleUrl: './post-list.css',
+  // changeDetection: ChangeDetectionStrategy.OnPush,   //
 })
 export class PostList implements OnInit {
   posts: JSONPlaceholderPost[] = [];
@@ -42,16 +43,21 @@ export class PostList implements OnInit {
           this.posts = [...this.posts, ...newPosts];
           this.pageNumber++;
           this.errorMessage= '';
-          // this.cdr.detectChanges();  // Avoid it here, otherwise, NG0100: ExpressionChangedAfterItHasBeenCheckedError in console
-                                        // Instead add markForCheck() below to check/mark for changes
+          // this.isLoading = false;    // Cleaner if inside complete because there is no quarantee the operation is finished
+          // this.cdr.detectChanges();  // Avoid it here if default strategy; otherwise, NG0100: ExpressionChangedAfterItHasBeenCheckedError in console
+                                        // Because Angular is already in the middle of a detection cycle and you force another one while values are changing, it dunctions isLoading toggled here
+          // this.cdr.markForCheck();   // By default such changes are detected automatically unless data flow timing depends on the complete() cycle
+                                        // That is why crashes when checked here and not below in complete()
         }
       },
       error: (error: any) => {
         this.handleError(error);
       },
+      // By complete(), data mutation is finished and state is stable (meaning the stream of data is finished)
       complete: () => {
-        this.isLoading = false;
-        this.cdr.markForCheck();
+        // this.isLoading = false;  // Toggling it here we are sure the operation is finished
+        // this.cdr.markForCheck();
+        this.cdr.detectChanges();
       }
     });
   }
@@ -63,7 +69,7 @@ export class PostList implements OnInit {
     const pos = window.innerHeight + window.scrollY;
     const max = document.body.scrollHeight;
 
-    // 2. Check if we are near the bottom (e.g., 200px threshold)
+    // 2. Check if we are near the bottom
     if (pos >= max && !this.isLoading) {
       this.loadPosts();
     }
