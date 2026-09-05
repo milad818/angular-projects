@@ -45,7 +45,7 @@ export class PostList implements OnInit {
           this.errorMessage= '';
           // this.isLoading = false;    // Cleaner if inside complete because there is no quarantee the operation is finished
           // this.cdr.detectChanges();  // Avoid it here if default strategy; otherwise, NG0100: ExpressionChangedAfterItHasBeenCheckedError in console
-                                        // Because Angular is already in the middle of a detection cycle and you force another one while values are changing, it dunctions isLoading toggled here
+                                        // Because Angular is already in the middle of a detection cycle and you force another one while values are changing, it functions as isLoading toggled here
           // this.cdr.markForCheck();   // By default such changes are detected automatically unless data flow timing depends on the complete() cycle
                                         // That is why crashes when checked here and not below in complete()
         }
@@ -55,7 +55,7 @@ export class PostList implements OnInit {
       },
       // By complete(), data mutation is finished and state is stable (meaning the stream of data is finished)
       complete: () => {
-        // this.isLoading = false;  // Toggling it here we are sure the operation is finished
+        this.isLoading = false;  // Toggling it here we are sure the operation is finished
         // this.cdr.markForCheck();
         this.cdr.detectChanges();
       }
